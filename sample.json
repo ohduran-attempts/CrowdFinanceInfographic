@@ -1,0 +1,100 @@
+[
+    {
+        "raised_fx": {
+            "GBP": 31524.000000000004
+        },
+        "start_time": "2015-01-01",
+        "goal_fx": {
+            "GBP": 1000.0
+        },
+        "url": "https://www.kickstarter.com/projects/1992357518/cafflano-klassic-portable-all-in-one-coffee-maker?ref=discovery",
+        "end_time": "2015-01-17",
+        "status": "successful_ended",
+        "concepts": {
+            "subtitle": [
+                {
+                    "start": 0,
+                    "concept": "world",
+                    "end": 4
+                },
+                {
+                    "start": 14,
+                    "concept": "portable all-in-one coffee Maker",
+                    "end": 45
+                },
+                {
+                    "start": 65,
+                    "concept": "grinder",
+                    "end": 71
+                },
+                {
+                    "start": 74,
+                    "concept": "drip kettle",
+                    "end": 84
+                },
+                {
+                    "start": 87,
+                    "concept": "filter",
+                    "end": 92
+                },
+                {
+                    "start": 95,
+                    "concept": "dripper",
+                    "end": 101
+                },
+                {
+                    "start": 107,
+                    "concept": "tumbler",
+                    "end": 113
+                },
+                {
+                    "start": 122,
+                    "concept": "single unit",
+                    "end": 132
+                }
+            ],
+            "category": [
+                {
+                    "start": 0,
+                    "concept": "design",
+                    "end": 5
+                },
+                {
+                    "start": 7,
+                    "concept": "product design",
+                    "end": 20
+                }
+            ],
+            "title": [
+                {
+                    "start": 0,
+                    "concept": "cafflano\u00ae klassic",
+                    "end": 16
+                },
+                {
+                    "start": 19,
+                    "concept": "all-in-one coffee maker",
+                    "end": 41
+                },
+                {
+                    "start": 46,
+                    "concept": "STAFF PICK",
+                    "end": 55
+                }
+            ],
+            "description": [
+                {
+                    "start": 0,
+                    "concept": "world",
+                    "end": 4
+                },
+                {
+                    "start": 14,
+                    "concept": "portable all-in-one coffee Maker",
+                    "end": 45
+                },
+                {
+                    "start": 65,
+                    "concept": "grinder",
+                    "end": 71
+                },

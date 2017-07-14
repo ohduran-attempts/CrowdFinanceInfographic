@@ -1,5 +1,8 @@
 # Crowd Finance Infographic
 
+## Intro
+This assessment has been deployed by means of showcasing my abilities as a Data Science. For more information on how to make use of this project, please read the [Documentation](docs/index.md).
+
 ## Assessment
 
 A user wants to produce an infographic that summaries the state of the crowdfunding market over time for use in marketing material and news feeds. Two types of analysis have been proposed:

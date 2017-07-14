@@ -1,4 +1,4 @@
-# CrowdFinanceInfographic
+# Crowd Finance Infographic
 
 ## Assessment
 

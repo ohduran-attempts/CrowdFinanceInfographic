@@ -1,1 +1,1 @@
-"""This library supports core.py in its implementation."""
+"""This library supports core.py in its implementation"""

@@ -3,4 +3,3 @@ import json
 import os
 
 data = json.load(open('projects.json', 'r'))
-print data

@@ -41,9 +41,21 @@ Where concepts are defined as a list of the following structures:
 
 Please submit a Python program I can use to generate the analytics results described in a), over an arbitrary time period.
 
-One way of ranking market segments is by the number of times the concepts occur in campaigns. Consider the limitations of this approachs and please improve on it with your solution so it is more informative. __Hint__: Does the popularity of a concept over previous months define whether it is trending this month?
+One way of ranking market segments is by the number of times the concepts occur in campaigns. Consider the limitations of this approaches and please improve on it with your solution so it is more informative. __Hint__: Does the popularity of a concept over previous months define whether it is trending this month?
 
-You should output the results in a format that makes it easy to render as a chart (e.g as a JSON document). You should create at least one unit test to verify your code. 
+You should output the results in a format that makes it easy to render as a chart (e.g as a JSON document). You should create at least one unit test to verify your code.
 
 ### Bonus question
-One way to implement the market index would be to compute the total amount raised by all campaigns that end before the specified date. Discuss the limitations and any improvements on this approach that you can think of. 
+One way to implement the market index would be to compute the total amount raised by all campaigns that end before the specified date. Discuss the limitations and any improvements on this approach that you can think of.
+
+## Instructions
+
+Please submit:
+
+- Your solution for each part of the question.
+- Your reasons behind any design decision.
+- The limitations of your solution.
+- How you could extend your work.
+- Instructions on how to use your solutions.
+
+Don't forget to include the requirements.txt file if you've used any external libraries.

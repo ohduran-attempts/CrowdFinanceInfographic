@@ -6,7 +6,7 @@ import os
 def open_json_as_dict(filepath):
     """Open JSON file and turn it into a dictionary object."""
     with open(filepath, 'r') as f:
-        return json.loads(f.read().decode('utf-8'))[0]  # decode not valid.
+        return json.loads(f.read())[0]  # decode not valid.
 
 
 data = open_json_as_dict('sample.json')
@@ -17,4 +17,7 @@ triplets = [triplet
 
 
 for i in range(len(triplets)):
-    print triplets[i]['concept']
+    try:
+        print str(triplets[i]['concept'])
+    except UnicodeEncodeError:
+        print i

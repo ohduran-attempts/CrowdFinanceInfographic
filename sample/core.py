@@ -9,7 +9,7 @@ def open_json_as_dict(filepath):
         return json.loads(f.read())[0]  # decode not valid.
 
 
-data = open_json_as_dict('sample.json')
+data = open_json_as_dict('projects.json')
 
 triplets = [triplet
             for text in data['concepts']

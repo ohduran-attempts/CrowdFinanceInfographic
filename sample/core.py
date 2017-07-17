@@ -1,3 +1,4 @@
+#!crowdfinance/bin/python
 """This file includes the core of the project."""
 import json
 import os

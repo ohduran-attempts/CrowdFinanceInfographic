@@ -1,5 +1,5 @@
 """This file includes the core of the project."""
-from helpers import get_concept_list
+from helpers import get_list_concepts
 
 
 def get_concept_dates(filepath):
@@ -9,4 +9,3 @@ def get_concept_dates(filepath):
     """
     data = get_concept_list(filepath=filepath)
     return data
- 

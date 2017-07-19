@@ -14,7 +14,7 @@ def get_campaigns_and_concepts(filepath):
     """From the dict, extract the concepts."""
     data = open_json_as_dict(filepath)
     len_data = len(data)
-    JSON = {}
+    dictionary = {}
     for i in range(len_data):
         try:  # Avoid incorrectly formated data.
             # REGEX the url and capture the name of the campaign
@@ -33,12 +33,12 @@ def get_campaigns_and_concepts(filepath):
             # each data point will have this info:
             dt_point = {
                 'name': campaign_name,
-                'start date': start_time,
-                'end date': end_time,
+                'start_date': start_time,
+                'end_date': end_time,
                 'concepts': []
             }
             # we add the skeleton to the dictionary under key i.
-            JSON[i] = dt_point
+            dictionary[i] = dt_point
             # concepts are stored in .json in triplets,
             # address that format then capture the concept.
             triplets = [triplet
@@ -54,16 +54,52 @@ def get_campaigns_and_concepts(filepath):
             for item in concepts:
                 if item not in concepts_unique:
                     concepts_unique.append(item)
-            JSON[i]['concepts'] = sorted(concepts_unique)
+            dictionary[i]['concepts'] = sorted(concepts_unique)
         # if format of a given entry is not adequate
         except KeyError:
             pass
-    return JSON
+    return dictionary
 
 
-def get_concept_list(filepath):
+def get_list_concepts(filepath):
     """
-    Create a JSON with each available concept.
-    Each will have the start date for all the campaigns available.
+    Create a dictionary of concepts.
+    concept {
+        occurrence: int,
+        campaigns: {
+            date: string,
+            money_raised: int
+        }
+    }
     """
     data = open_json_as_dict(filepath)
+    len_data = len(data)
+    dictionary = {}
+    concepts = []
+    for i in range(len_data):
+        try:
+            date = data[i]['start_time']
+            raised = data[i]['raised_fx']['GBP']
+            for text in ['title', 'subtitle', 'description', 'category']:
+                concepts += [concept['concept']
+                                         for concept in data[i]['concepts'][text]]
+
+            # Fill dictionary with the information
+            for concept in concepts:
+                # if the concept is new to the dictionary
+                if concept not in dictionary.keys():
+                    dictionary[concept] = {
+                        'occurrence': 1,
+                        'campaigns': [{
+                            'raised': raised,
+                            'date': date
+                        }]
+                    }
+                else:
+                    # append a new occurrence and add up 1 to the counter
+                    dictionary[concept]['occurrence'] += 1
+                    dictionary[concept]['campaigns'].append(
+                        {'raised': raised, 'date': date})
+        except KeyError:
+            pass
+    return dictionary

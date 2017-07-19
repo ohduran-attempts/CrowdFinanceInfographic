@@ -11,7 +11,7 @@ a) Trending market segments: a ranking of the top trending segments within crowd
 b) Market index: a metric that reflects how well the crowd finance market as a whole performs over a given period.
 
 Projects adhere to the following schema:
-
+```json
 {
 	"url": "Link to the campaign on the platform website",
 	"platform_name": "Name of Platform",
@@ -31,7 +31,7 @@ Projects adhere to the following schema:
 		"GBP": "Amount of money currently raised, in GBP"
 	 }
 }
-
+```
 Where concepts are defined as a list of the following structures:
 
 {

@@ -12,17 +12,22 @@ __Purpose__: Data storage
 
 Projects.json and some subsets of it stored in a separate folder.
 ### sample/
-__Purpose__: The code of interest  \n
+__Purpose__: The code of interest
+
 The project's main library.
 ### tests/
-__Purpose__: Sanity checks  \n
+__Purpose__: Sanity checks
+
 Test classes. Pretty self-explanatory.
 ### LICENSE.md
-__Purpose__: Legalities  \n
+__Purpose__: Legalities
+
 License agreement under MIT (long story short: free to use upon referencing [me](https://github.com/ohduran)).
 ### README.md
-__Purpose__: The case description  \n
+__Purpose__: The case description
+
 A curated list of tasks to be complete.
 ### run.py
-__Purpose__: Executable file  \n
+__Purpose__: Executable file
+
 Variables and filepaths are stored here as config. Executes the project to display the solution.

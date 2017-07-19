@@ -34,11 +34,13 @@ Projects adhere to the following schema:
 ```
 Where concepts are defined as a list of the following structures:
 
+```json
 {
    "start": "The position of the last character of what the concept represents in the corresponding text field (starts at 0)",
    "end": "The position of the last character of what the concept represents in the corresponding text field (starts at 0)",
    "concept": "The actual concept"
 }
+```
 
 ## Task
 

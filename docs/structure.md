@@ -4,10 +4,12 @@ available [here](https://github.com/kennethreitz/samplemod). Below, each compone
 in further detail.
 
 ### docs/
-__Purpose__: Documentation  \n
+__Purpose__: Documentation
+
 The documentation of the project (where you are now).
 ### jsons/
-__Purpose__: Data storage  \n
+__Purpose__: Data storage
+
 Projects.json and some subsets of it stored in a separate folder.
 ### sample/
 __Purpose__: The code of interest  \n

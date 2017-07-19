@@ -8,4 +8,5 @@ def get_concept_dates(filepath):
     Each will have the start date for all the campaigns available.
     """
     data = get_concept_list(filepath=filepath)
-    
+    return data
+ 

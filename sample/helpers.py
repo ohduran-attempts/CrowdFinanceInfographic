@@ -1,4 +1,9 @@
-"""This library supports core.py in its implementation."""
+"""
+This library supports core.py in its implementation.
+
+Helpers.py aims at extract information from the JSON file in different ways,
+to be consumed by core.py as dictionaries. Provides a level of abstraction.
+"""
 import json
 from re import findall
 import os
@@ -7,7 +12,7 @@ import os
 def open_json_as_dict(filepath):
     """Open JSON file and turn it into a dictionary object."""
     with open(filepath, 'r') as f:
-        return json.loads(f.read())
+        return json.loads(f.read())[0]
 
 
 def get_campaigns_and_concepts(filepath):

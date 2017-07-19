@@ -10,5 +10,6 @@ if __name__ == '__main__':
             print key, response.keys().count(key)
         except UnicodeEncodeError:
             pass
+        
 else:
     print __name__

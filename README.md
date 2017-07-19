@@ -1,7 +1,7 @@
 # Crowd Finance Infographic
 
 ## Intro
-This assessment has been deployed showcasing my abilities as a Data Science. For more information on how to make use of this project, please read the [Documentation](docs/index.md).
+This assessment has been deployed showcasing my abilities as a Data Scientist. For more information on how to make use of this project, please read the [Documentation](docs/index.md).
 
 ## Assessment
 

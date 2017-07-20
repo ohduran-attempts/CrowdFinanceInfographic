@@ -1,4 +1,5 @@
 #!virtualenv/bin/python
+"""Executable file."""
 from sample import helpers
 
 

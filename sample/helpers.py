@@ -6,10 +6,9 @@ to be consumed by core.py as dictionaries. Provides a level of abstraction.
 """
 import json
 from re import findall
-import os
 
 
-def open_json_as_dict(filepath, constrain=None):
+def open_json_as_dict(filepath):
     """
     Open JSON file and turn it into a dictionary object.
     The schema will remain as it comes from JSON.
@@ -19,7 +18,7 @@ def open_json_as_dict(filepath, constrain=None):
         return json.loads(f.read())
 
 
-def get_campaigns_and_concepts(filepath):
+def get_campaigns_and_concepts(filepath, file=None):
     """
      From the dict, extract the concepts.
      The schema of the dictionary will be:
@@ -30,7 +29,10 @@ def get_campaigns_and_concepts(filepath):
         'concepts': [str, str, .... ]
     }
     """
-    data = open_json_as_dict(filepath)[0]
+    if file is None:
+        data = open_json_as_dict(filepath)
+    else:
+        data = file
     len_data = len(data)
     dictionary = {}
     for i in range(len_data):
@@ -79,7 +81,7 @@ def get_campaigns_and_concepts(filepath):
     return dictionary
 
 
-def get_list_concepts(filepath):
+def get_list_concepts(filepath, file=None):
     """
     Create a dictionary of concepts.
     concept {
@@ -91,7 +93,10 @@ def get_list_concepts(filepath):
         }
     }
     """
-    data = open_json_as_dict(filepath)
+    if file is None:
+        data = open_json_as_dict(filepath)
+    else:
+        data = file
     dictionary = {}
     concepts = []
     for i in range(len(data)):

@@ -12,8 +12,8 @@ import os
 def open_json_as_dict(filepath):
     """Open JSON file and turn it into a dictionary object."""
     with open(filepath, 'r') as f:
-        return json.loads(f.read())[0]
-
+        return json.loads(f.read())
+    
 
 def get_campaigns_and_concepts(filepath):
     """From the dict, extract the concepts."""

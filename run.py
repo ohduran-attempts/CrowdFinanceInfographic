@@ -4,9 +4,7 @@ from sample import helpers
 
 
 if __name__ == '__main__':
-    filepath = 'jsons/sample.json'
-    response, concepts = helpers.get_list_concepts(filepath=filepath)
-    print(response)
-
+    filepath = helpers.unzip_projects_json()
+    print(helpers.get_list_concepts(filepath=filepath))
 else:
-    print (__name__)
+    raise Exception('INTERNAL PROBLEM')

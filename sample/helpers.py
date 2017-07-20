@@ -5,7 +5,15 @@ Helpers.py aims at extract information from the JSON file in different ways,
 to be consumed by core.py as dictionaries. Provides a level of abstraction.
 """
 import json
+import gzip
 from re import findall
+
+
+def unzip_projects_json():
+    """Extract project.json from .zip as a JSON file."""
+    # with acts as setup + do + finish the opening in one line
+    with gzip.open('jsons/projects.json.gz', 'rb') as f:
+        return f.read()
 
 
 def open_json_as_dict(filepath):
@@ -136,4 +144,4 @@ def get_list_concepts(filepath, file=None):
                     dictionary[concept]['occurrence'] = len(dictionary[concept]['campaigns'])
         except KeyError:
             pass
-    return dictionary, concepts
+    return dictionary

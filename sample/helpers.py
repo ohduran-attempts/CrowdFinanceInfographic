@@ -9,7 +9,7 @@ from re import findall
 import os
 
 
-def open_json_as_dict(filepath):
+def open_json_as_dict(filepath, constrain=None):
     """
     Open JSON file and turn it into a dictionary object.
     The schema will remain as it comes from JSON.

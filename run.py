@@ -1,11 +1,11 @@
-#  #!crowdfinance/bin/python
-from sample import core
+#!virtualenv/bin/python
+from sample import helpers
 
 
 if __name__ == '__main__':
-    filepath = 'jsons/bigsample.json'
-    response, concepts = core.get_list_concepts(filepath=filepath)
-    print response
+    filepath = 'jsons/sample.json'
+    response, concepts = helpers.get_list_concepts(filepath=filepath)
+    print(response)
 
 else:
-    print __name__
+    print (__name__)

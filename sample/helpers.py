@@ -10,14 +10,27 @@ import os
 
 
 def open_json_as_dict(filepath):
-    """Open JSON file and turn it into a dictionary object."""
+    """
+    Open JSON file and turn it into a dictionary object.
+    The schema will remain as it comes from JSON.
+    Tests have been built with that in mind.
+    """
     with open(filepath, 'r') as f:
         return json.loads(f.read())
-    
+
 
 def get_campaigns_and_concepts(filepath):
-    """From the dict, extract the concepts."""
-    data = open_json_as_dict(filepath)
+    """
+     From the dict, extract the concepts.
+     The schema of the dictionary will be:
+     {
+        'name': str,
+        'start_date': str,
+        'end_date': str,
+        'concepts': [str, str, .... ]
+    }
+    """
+    data = open_json_as_dict(filepath)[0]
     len_data = len(data)
     dictionary = {}
     for i in range(len_data):
@@ -73,22 +86,21 @@ def get_list_concepts(filepath):
         occurrence: int,
         campaigns: {
             date: string,
-            money_raised: int
+            money_raised: float
+            occurrence_in_campaign: int
         }
     }
     """
     data = open_json_as_dict(filepath)
-    len_data = len(data)
     dictionary = {}
     concepts = []
-    for i in range(len_data):
+    for i in range(len(data)):
         try:
             date = data[i]['start_time']
-            raised = data[i]['raised_fx']['GBP']
+            raised = float(data[i]['raised_fx']['GBP'])  # some are int.
             for text in ['title', 'subtitle', 'description', 'category']:
                 concepts += [concept['concept']
                                          for concept in data[i]['concepts'][text]]
-
             # Fill dictionary with the information
             for concept in concepts:
                 # if the concept is new to the dictionary
@@ -97,14 +109,26 @@ def get_list_concepts(filepath):
                         'occurrence': 1,
                         'campaigns': [{
                             'raised': raised,
-                            'date': date
+                            'date': date,
+                            'occurrence_campaign': 1
                         }]
                     }
-                else:
-                    # append a new occurrence and add up 1 to the counter
-                    dictionary[concept]['occurrence'] += 1
-                    dictionary[concept]['campaigns'].append(
-                        {'raised': raised, 'date': date})
+                # if the concept is there already
+                if concept in dictionary.keys():
+                    new_campaign = {
+                        'raised': raised,
+                        'date': date,
+                        'occurrence_campaign': 1
+                    }
+                    if new_campaign not in dictionary[concept]['campaigns']:
+                        dictionary[concept]['campaigns'].append(new_campaign)
+                    if new_campaign in dictionary[concept]['campaigns']:
+                        # assume list of concepts keeps the order of coming from JSON.
+                        o_c = dictionary[concept]['campaigns'][-1]['occurrence_campaign']
+                        o_c += 1
+                        new_campaign['occurrence_campaign'] = o_c
+                        dictionary[concept]['campaigns'][-1] = new_campaign
+                    dictionary[concept]['occurrence'] = len(dictionary[concept]['campaigns'])
         except KeyError:
             pass
-    return dictionary
+    return dictionary, concepts

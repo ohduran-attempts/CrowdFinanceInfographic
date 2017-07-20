@@ -22,7 +22,7 @@ Test classes. Pretty self-explanatory.
 ### LICENSE.md
 __Purpose__: Legalities
 
-License agreement under MIT (long story short: free to use upon referencing [me](https://github.com/ohduran)).
+License agreement under MIT License (as in: free to use upon referencing [me](https://github.com/ohduran)).
 ### README.md
 __Purpose__: The case description
 

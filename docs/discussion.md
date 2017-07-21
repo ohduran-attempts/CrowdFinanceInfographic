@@ -1,12 +1,13 @@
 ## Project discussion
 ### Index
 1. Code discussion
-2. Problem A discussion
-  2.1. Data quality discussion
-  2.2. Data analysis discussion
-3. Problem B discussion
-  3.1. Data quality discussion
+2. Data quality discussion
+3. Problem A discussion
   3.2. Data analysis discussion
+  3.3. Solution schema
+4. Problem B discussion
+  4.1 Data analysis discussion
+  4.2 Solution schema
 
 ### Code:
 
@@ -16,9 +17,9 @@
 - The structure of the data is inconsistent: most doesn't have "platform_name". For consistency, we extracted the name from the url using Regular Expressions.
 - Time intervals, not time points: hard to discuss trending on data intervals instead of data points.  
 - The way to handle dates is problematic here; it was decided to use the start_date as the point of reference, based on the idea that end_time is arbitrary selected by the campaign manager, but the start_date isn't.
+### Data Quality
+Attach dates to certain concepts isn't enough: concepts tend to repeat themselves throughout the same campaign. In problem A, we filter that by only adding a new data point for each campaign. In problem B, we distribute evenly the money raised along the duration of the campaign.
 ### Problem A:
-#### Quality of the data
-- Attach dates to certain concepts isn't enough: concepts tend to repeat themselves throughout the same campaign. We filter that by only adding a new data point for each campaign.
 #### Analysis of the data
 Interestingly enough, the assessment suggests counting the number of times a concept happens on a given time, regardless of whether the occurrences were at the same campaign or across different campaigns. Although it would account for a more granularity in terms of how many times someone, somewhere, used that word on a campaign, is oblivious to the fact that, if a given campaign approaches the description of the product by repeating over an over the same term, that doesn't mean that the term is any more trending than others.
 
@@ -26,6 +27,4 @@ That is, if I created a campaign in which I constantly go over the fact that I w
 
 Thus, when counting the occurrences of a given concept, we weren't oblivious to this issue and decided to count each concept just once. If we were to discuss how much frequent a word is correlated with the success or failure of a given campaign, that would be a different issue that I believe is out of the scope of this assessment. In any case, the occurrences have been reported within the campaign anyway (after all, it is information provided, thus increasing reusability of this project).
 ### Problem B
-#### Quality of the data
-- Again, the way to handle dates is problematic here; where to select the dates, given the fact that the end_time is arbitrary selected. In this case, to account for the fact that just using start_date might lead to enormous and time-extensive campaigns corrupting the index, it was decided to split the money raised by a certain campaign evenly on all of the days that the campaign was open, for lack of more data and safely assuming that the distribution of the raising of the money happens close to that approach, when aggregating all the campaigns.
-#### Analysis of the data
+Again, the way to handle dates is problematic here; where to select the dates, given the fact that the end_time is arbitrary selected. In this case, to account for the fact that just using start_date might lead to enormous and time-extensive campaigns corrupting the index, it was decided to split the money raised by a certain campaign evenly on all of the days that the campaign was open, for lack of more data and safely assuming that the distribution of the raising of the money happens close to that approach, when aggregating all the campaigns.
